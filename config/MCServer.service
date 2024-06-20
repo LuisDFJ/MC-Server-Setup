@@ -1,0 +1,17 @@
+[Unit]
+Description=Minecraft Server Amigoz Cool
+Wants=network-online.target
+After=network-online.target
+
+[Service]
+Type=forking
+User={1}
+Group={1}
+ExecStart=/usr/bin/bash {0}/start_server.sh
+ExecStop=/usr/bin/bash {0}/stop_server.sh
+WorkingDirectory={0}/
+Restart=always
+TimeoutStartSec=600
+
+[Install]
+WantedBy=multi-user.target
